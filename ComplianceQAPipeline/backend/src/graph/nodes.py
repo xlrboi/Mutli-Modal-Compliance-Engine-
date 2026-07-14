@@ -81,7 +81,7 @@ def audit_content_node(state: VideoAuditState) -> Dict[str, Any]:
     llm = AzureChatOpenAI(
         azure_deployment=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT"),
         openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-        temperature=1
+        temperature=1 # ChatGPT is saying 0 is not allowed by OpenAI/Azure either do this or use dafault temperature     
     )
 
     embeddings = AzureOpenAIEmbeddings(
